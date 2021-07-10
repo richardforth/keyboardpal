@@ -241,10 +241,7 @@ class Application(Frame):
         myText = self.main_txt.get(0.0, END)
         lines = myText.splitlines()
         time.sleep(5) 
-        for line in lines:
-            pyautogui.typewrite(line, TYPING_SPEED)
-            pyautogui.typewrite("\n")
-            time.sleep(NEWLINE_DELAY)
+        self.typout(lines)
         # https://github.com/asweigart/pyautogui/issues/46#issuecomment-132640299
 
     def tiepit2(self):
@@ -252,13 +249,22 @@ class Application(Frame):
         # get values from the GUI
         myText = self.main_txt2.get(0.0, END)
         lines = myText.splitlines()
+
         time.sleep(5) 
-        for line in lines:
-            pyautogui.typewrite(line, TYPING_SPEED)
-            pyautogui.typewrite("\n")
-            time.sleep(NEWLINE_DELAY)
+        self.typout(lines)
         # https://github.com/asweigart/pyautogui/issues/46#issuecomment-132640299
         
+    def typout(self, lines):
+        for line in lines:
+            ## skip last newline
+            ## Only provide newlines "between" lines
+            if (line == lines[-1]):
+                pyautogui.typewrite(line, TYPING_SPEED)
+            else:
+                pyautogui.typewrite(line, TYPING_SPEED)
+                pyautogui.typewrite("\n")
+                time.sleep(NEWLINE_DELAY)
+
     def reset(self):
         self.main_txt.delete(0.0, END)
 
