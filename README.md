@@ -15,3 +15,13 @@ It has two inputs to help with automation where you might have alternate text to
 Note that tkinter is not in the requiremennts.txt as you have to install it as an operating system package:
 
 python3-tkinter
+
+
+# Installation of requirements on ubuntu 22.04
+
+```bash
+sudo apt-get install python3-tk
+pip3 install putautogui
+```
+
+
