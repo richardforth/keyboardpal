@@ -21,7 +21,7 @@ python3-tkinter
 
 ```bash
 sudo apt-get install python3-tk
-pip3 install putautogui
+pip3 install pyautogui
 ```
 
 
